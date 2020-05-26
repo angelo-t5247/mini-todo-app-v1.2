@@ -11,28 +11,32 @@
       <a href="#" class="navbar-brand">Mini Todo App</a>
       <span class="nav-item ml-auto"><a href="/" class="nav-link">Login</a></span>
    </nav>
-
-   <form class="main-form" th:action="@{/registerUser}" th:object="${user}" method="post">
-  
-  
-     <div class="form-group">
-       <label for="firstName">First Name</label>
-       <input type="text" class="form-control" th:field = "*{firstName}" id="firstName" >
-     </div>
-     <div class="form-group">
-       <label for="lastName">Last Name</label>
-       <input type="text" class="form-control" th:field = "*{lastName}" id="lastName" >
-     </div>
-     <div class="form-group">
-       <label for="username">Username</label>
-       <input type="text" class="form-control" th:field="*{username}" id="username" >
-     </div>
-     <div class="form-group">
-       <label for="password">Password</label>
-       <input type="password" class="form-control" th:field="*{password}" id="password" >
-     </div>
-     <button type="submit" class="btn btn-primary" name="button">Register</button>
-   </form>
+		
+		<div class="container text-center register">
+			<h2>Fill up the form</h2>
+		</div>
+		<hr>
+	
+	   <form class="main-form" th:action="@{/registerUser}" th:object="${user}" method="post">
+	
+	     <div class="form-group">
+	       <label for="firstName">First Name</label>
+	       <input type="text" class="form-control" th:field = "*{firstName}" id="firstName" >
+	     </div>
+	     <div class="form-group">
+	       <label for="lastName">Last Name</label>
+	       <input type="text" class="form-control" th:field = "*{lastName}" id="lastName" >
+	     </div>
+	     <div class="form-group">
+	       <label for="username">Username</label>
+	       <input type="text" class="form-control" th:field="*{username}" id="username" >
+	     </div>
+	     <div class="form-group">
+	       <label for="password">Password</label>
+	       <input type="password" class="form-control" th:field="*{password}" id="password" >
+	     </div>
+	     <button type="submit" class="btn btn-primary" name="button">Register</button>
+	   </form>
 
   </body>
 </html>
