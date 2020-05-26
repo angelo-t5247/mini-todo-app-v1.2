@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="utf-8">
+    <title>Mini Todo App | Homepage</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Mini Todo App</a>
+      <a th:href="@{/todo-list/{username}(username=${user.username})}" class="nav-item nav-link">View Todo List</a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item"><a href="#" class="nav-link">Account</a></li>
+          <li class="nav-item"><a th:href="@{/logout}" class="nav-link">Logout</a></li>
+        </ul>
+      </div>
+   </nav>
+   
+	<div class="container text-center my-4">
+		<h1>Welcome to Todo List app</h1>
+	</div>
+   
+
+
+  </body>
+</html>
