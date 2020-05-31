@@ -35,6 +35,19 @@
 	       <label for="todoDesc">Description</label>
 	       <input type="text" class="form-control" th:field="*{description}">
 	     </div>
+	     <div class="form-group">
+	       <label for="todoDesc">Target Date</label>
+	       <input type="date" class="form-control" th:field="*{date}">
+	     </div>
+	     
+	     <div class="form-group">
+	     	<label for="todoStatus">Status</label>
+	     	<select th:field="*{status}" class="form-control">
+         	  		<option th:value="On-Going">On-Going</option>
+         	  		<option th:value="Pending">Pending</option>
+         	  		<option th:value="Completed">Completed</option>
+         	</select>
+	     </div>
 	     <button type="submit" class="btn btn-primary" name="button">Submit</button>
 	   </form>
 	</div>

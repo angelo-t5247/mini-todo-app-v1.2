@@ -42,13 +42,23 @@ public class UserController {
 		}
 	}
 	
+	
 	@GetMapping("/todo-list/{username}")
-	public String showHomepage(@PathVariable String username, Model model) {
+	public String showTodoList(@PathVariable String username, Model model) {
 		User user = new User();
 		user.setUsername(username);
 		model.addAttribute("user", user);
 		model.addAttribute("todos", todoService.findAllTodosByUsername(user.getUsername()));
 		return "todo-list";
+	}
+	
+	@GetMapping("/homepage/{username}")
+	public String showHomepage(@PathVariable String username, Model model) {
+		User user = new User();
+		user.setUsername(username);
+		model.addAttribute("user", user);
+		model.addAttribute("todos", todoService.findAllTodosByUsername(user.getUsername()));
+		return "homepage";
 	}
 	
 	@GetMapping("/register")
@@ -78,6 +88,9 @@ public class UserController {
 	public String saveTodo(@ModelAttribute Todo todo, @PathVariable String username, Model model) {
 		User user = new User();
 		user.setUsername(username);
+		if(todo.getStatus()==null) {
+			todo.setStatus("On-Going");
+		}
 		todoService.saveTodo(todo);
 		model.addAttribute("user", user);
 		model.addAttribute("todos", todoService.findAllTodosByUsername(username));

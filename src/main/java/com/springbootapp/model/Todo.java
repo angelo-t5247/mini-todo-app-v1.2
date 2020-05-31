@@ -1,11 +1,17 @@
 package com.springbootapp.model;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity	
 @Table(name="todos")
@@ -17,6 +23,11 @@ public class Todo {
 	private String name;
 	private String description;
 	private String username;
+	private String status;
+	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Temporal(TemporalType.DATE)
+	private Date date;
 	
 	@ManyToOne
 	private User user;
@@ -25,12 +36,31 @@ public class Todo {
 		
 	}
 	
-	public Todo(String name, String description) {
+	
+	public Todo(String name, String description, String status, Date date) {
 		super();
 		this.name = name;
 		this.description = description;
+		this.status = status;
+		this.date = date;
 	}
-	
+
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public User getUser() {
 		return user;
 	}
